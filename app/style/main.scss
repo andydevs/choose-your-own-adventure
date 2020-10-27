@@ -4,31 +4,60 @@
  * Author:  [Your Name Here]
  * Created: [Date of Creation]
  */
-
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#elon {
-    display: none;
+#app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
-#title {
-    color: green;
+.container {
+    max-width: 80%;
 }
 
-#destupid {
-    background: none;
-    color: black;
-    border: 1px solid black;
+#text, #options {
+    margin: 16pt 0pt;
+}
+
+$default-color: #eee;
+
+.option {
+    display: block;
+    margin: 8pt 0pt;
+    background-color: $default-color;
+    border: none;
     padding: 4pt 8pt;
-    border-radius: 4pt;
-    &:hover {
-        background-color: #bbb;
+    border: 1px solid;
+    border-color: transparent;
+    transition: border-color 0.25s ease-in-out;
+}
+.option:hover {
+    border-color: darken($default-color, 10);
+}
+
+$option-colors: (
+    aqua, 
+    lime, 
+    yellow, 
+    lightsalmon,
+    violet,
+);
+@for $i from 1 through length($option-colors) {
+    $color: nth($option-colors, $i);
+    .option:nth-child(#{$i}) {
+        background-color: $color;
     }
-    &:disabled {
-        background-color: #fafafa;
-        color: #555;
-        border-color: #555;
+    .option:nth-child(#{$i}):hover {
+        border-color: darken($color, 10%);
     }
 }

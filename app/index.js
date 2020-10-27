@@ -5,17 +5,72 @@
  * Created: [Date of Creation]
  */
 import './style/main.scss'
-import elon from './assets/images/elon.jpg'
+import story from './story.json'
 
-// Get app
-let app = document.getElementById('app')
-app.innerHTML = '<h1 id="title">Eyyyyy</h1>'
-    + `<img id="elon" src="${elon}">`
-    + '<button id="destupid">Make it less Stupid</button>'
+let errorPart = {
+    id: '-1',
+    text: `Well... looks like you entered a part of 
+        the story that doesn\'t exist... how about that?`,
+    options: [
+        {
+            id: '0',
+            text: 'Go to the beginning'
+        }
+    ]
+}
 
-// Destupid button
-document.getElementById('destupid').addEventListener('click', function() {
-    document.getElementById('title').innerText = 'It\'s Elon!'
-    document.getElementById('elon').style.display = 'block'
-    document.getElementById('destupid').style.display = 'none'
-})
+function findStoryPart(id) {
+    for (const part of story.parts) {
+        if (part.id === id) {
+            return part
+        }
+    }
+    return errorPart
+}
+
+// Get text and options
+let textArea = document.getElementById('text')
+let optionsArea = document.getElementById('options')
+
+function selectStoryPart(id) {
+    console.group('selectStoryPart')
+    
+    // Find story part
+    console.log('Selecting part with id ' + id)
+    let part = findStoryPart(id)
+    console.log('Part:')
+    console.log(part)
+
+    // Set part
+    clear()
+    setText(part.text)
+    setOptions(part.options)
+
+    // End console group
+    console.groupEnd()
+}
+
+function setText(text) {
+    textArea.innerHTML = text
+}
+
+function setOptions(options) {
+    let button
+    for (const option of options) {
+        button = document.createElement('button')
+        button.classList.add('option')
+        button.innerText = option.text
+        button.addEventListener('click', function() {
+            selectStoryPart(option.id)
+        })
+        optionsArea.appendChild(button)        
+    }
+}
+
+function clear() {
+    textArea.innerHTML = ''
+    optionsArea.innerHTML = ''
+}
+
+// Set initial part
+selectStoryPart('0')

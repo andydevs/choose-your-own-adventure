@@ -1,9 +1,14 @@
 {
-  "name": "my-website",
+  "name": "choose-your-own-adventure",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
-  "keywords": [],
+  "description": "Exactly what it says on the tin",
+  "author": "Anshul Kharbanda",
+  "keywords": [
+    "choose",
+    "your",
+    "own",
+    "adventure"
+  ],
   "license": "MIT",
   "private": true,
   "scripts": {
