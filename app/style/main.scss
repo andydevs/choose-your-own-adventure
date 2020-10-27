@@ -1,54 +1,64 @@
 /**
  * Use this template for building basic static websites
  * 
- * Author:  [Your Name Here]
- * Created: [Date of Creation]
+ * Author:  Anshul Kharbanda
+ * Created: 10 - 26 - 2020
  */
-* {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
+// Positioning and sizing of app
 #app {
+    // Fill entire screen
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 
+    // Center container
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
-
 .container {
-    max-width: 80%;
+    height: 90%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
 #text, #options {
+    flex: 0;
     margin: 16pt 0pt;
 }
 
-$default-color: #eee;
+// Der fonten
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
+// Option buttons
 .option {
+    // Positioning
     display: block;
     margin: 8pt 0pt;
-    background-color: $default-color;
-    border: none;
+    margin-left: auto;
+
+    // Size and shape
     padding: 4pt 8pt;
+    border-top-left-radius: 8pt;
+    border-bottom-left-radius: 8pt;
+
+    // Border
     border: 1px solid;
     border-color: transparent;
     transition: border-color 0.25s ease-in-out;
 }
-.option:hover {
-    border-color: darken($default-color, 10);
-}
 
+// Option coloring
 $option-colors: (
     aqua, 
     lime, 
-    yellow, 
+    #ffdd00, 
     lightsalmon,
     violet,
 );
@@ -60,4 +70,13 @@ $option-colors: (
     .option:nth-child(#{$i}):hover {
         border-color: darken($color, 10%);
     }
+}
+
+// Default option coloring
+$default-color: #eee;
+.option {
+    background-color: $default-color;
+}
+.option:hover {
+    border-color: darken($default-color, 10);
 }

@@ -1,12 +1,13 @@
 /**
  * Use this template for building basic static websites
  * 
- * Author:  [Your Name Here]
- * Created: [Date of Creation]
+ * Author:  Anshul Kharbanda
+ * Created: 10 - 26 - 2020
  */
 import './style/main.scss'
 import story from './story.json'
 
+// Error part
 let errorPart = {
     id: '-1',
     text: `Well... looks like you entered a part of 
