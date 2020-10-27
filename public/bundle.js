@@ -108,10 +108,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 /**
  * Use this template for building basic static websites
  * 
- * Author:  [Your Name Here]
- * Created: [Date of Creation]
+ * Author:  Anshul Kharbanda
+ * Created: 10 - 26 - 2020
  */
 
+ // Error part
 
 var errorPart = {
   id: '-1',
@@ -255,7 +256,7 @@ module.exports = content.locals || {};
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/**\r\n * Use this template for building basic static websites\r\n * \r\n * Author:  [Your Name Here]\r\n * Created: [Date of Creation]\r\n */\n* {\n  font-family: Verdana, Geneva, Tahoma, sans-serif; }\n\n#app {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.container {\n  max-width: 80%; }\n\n#text, #options {\n  margin: 16pt 0pt; }\n\n.option {\n  display: block;\n  margin: 8pt 0pt;\n  background-color: #eee;\n  border: none;\n  padding: 4pt 8pt;\n  border: 1px solid;\n  border-color: transparent;\n  transition: border-color 0.25s ease-in-out; }\n\n.option:hover {\n  border-color: #d5d5d5; }\n\n.option:nth-child(1) {\n  background-color: aqua; }\n\n.option:nth-child(1):hover {\n  border-color: #00cccc; }\n\n.option:nth-child(2) {\n  background-color: lime; }\n\n.option:nth-child(2):hover {\n  border-color: #00cc00; }\n\n.option:nth-child(3) {\n  background-color: yellow; }\n\n.option:nth-child(3):hover {\n  border-color: #cccc00; }\n\n.option:nth-child(4) {\n  background-color: lightsalmon; }\n\n.option:nth-child(4):hover {\n  border-color: #ff7c47; }\n\n.option:nth-child(5) {\n  background-color: violet; }\n\n.option:nth-child(5):hover {\n  border-color: #e855e8; }\n", ""]);
+exports.push([module.i, "/**\r\n * Use this template for building basic static websites\r\n * \r\n * Author:  Anshul Kharbanda\r\n * Created: 10 - 26 - 2020\r\n */\n#app {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.container {\n  height: 90%;\n  width: 90%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; }\n\n#text, #options {\n  flex: 0;\n  margin: 16pt 0pt; }\n\n* {\n  font-family: Verdana, Geneva, Tahoma, sans-serif; }\n\n.option {\n  display: block;\n  margin: 8pt 0pt;\n  margin-left: auto;\n  padding: 4pt 8pt;\n  border-top-left-radius: 8pt;\n  border-bottom-left-radius: 8pt;\n  border: 1px solid;\n  border-color: transparent;\n  transition: border-color 0.25s ease-in-out; }\n\n.option:nth-child(1) {\n  background-color: aqua; }\n\n.option:nth-child(1):hover {\n  border-color: #00cccc; }\n\n.option:nth-child(2) {\n  background-color: lime; }\n\n.option:nth-child(2):hover {\n  border-color: #00cc00; }\n\n.option:nth-child(3) {\n  background-color: #ffdd00; }\n\n.option:nth-child(3):hover {\n  border-color: #ccb100; }\n\n.option:nth-child(4) {\n  background-color: lightsalmon; }\n\n.option:nth-child(4):hover {\n  border-color: #ff7c47; }\n\n.option:nth-child(5) {\n  background-color: violet; }\n\n.option:nth-child(5):hover {\n  border-color: #e855e8; }\n\n.option {\n  background-color: #eee; }\n\n.option:hover {\n  border-color: #d5d5d5; }\n", ""]);
 // Exports
 module.exports = exports;
 
