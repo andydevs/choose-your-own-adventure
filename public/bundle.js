@@ -146,22 +146,7 @@ function findStoryPart(id) {
 
 
 var textArea = document.getElementById('text');
-var optionsArea = document.getElementById('options');
-
-function selectStoryPart(id) {
-  console.group('selectStoryPart'); // Find story part
-
-  console.log('Selecting part with id ' + id);
-  var part = findStoryPart(id);
-  console.log('Part:');
-  console.log(part); // Set part
-
-  clear();
-  setText(part.text);
-  setOptions(part.options); // End console group
-
-  console.groupEnd();
-}
+var controlsArea = document.getElementById('controls');
 
 function setText(text) {
   textArea.innerHTML = text;
@@ -182,7 +167,7 @@ function setOptions(options) {
       button.addEventListener('click', function () {
         selectStoryPart(option.id);
       });
-      optionsArea.appendChild(button);
+      controlsArea.appendChild(button);
     };
 
     for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
@@ -195,9 +180,44 @@ function setOptions(options) {
   }
 }
 
+function setEnding(ending) {
+  var endText = document.createElement('p');
+  endText.classList.add('ending-text');
+  endText.innerHTML = ending;
+  controlsArea.appendChild(endText);
+  var button = document.createElement('button');
+  button.classList.add('option');
+  button.innerText = 'Play Again';
+  button.addEventListener('click', function () {
+    selectStoryPart('$');
+  });
+  controlsArea.appendChild(button);
+}
+
+function selectStoryPart(id) {
+  console.group('selectStoryPart'); // Find story part
+
+  console.log('Selecting part with id ' + id);
+  var part = findStoryPart(id);
+  console.log('Part:');
+  console.log(part); // Set part
+
+  clear();
+  setText(part.text);
+
+  if (part.theend) {
+    setEnding(part.ending);
+  } else {
+    setOptions(part.options);
+  } // End console group
+
+
+  console.groupEnd();
+}
+
 function clear() {
   textArea.innerHTML = '';
-  optionsArea.innerHTML = '';
+  controlsArea.innerHTML = '';
 } // Let's get this story goin!
 
 
@@ -213,7 +233,7 @@ selectStoryPart('$');
 /*! exports provided: title, description, author, parts, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"title\":\"Oh No! You Farted in an Elevator\",\"description\":\"You've unfortunately found yourself in a bit of a predicament. Make the right choices and you can get away scott free!\\n\",\"author\":\"Anshul Kharbanda\",\"parts\":[{\"id\":\"$\",\"text\":\"Oh no! You farted in an elevator!  What do you do?\\n\",\"options\":[{\"id\":\"$a\",\"text\":\"Shout \\\"It wasn't me!\\\"\"},{\"id\":\"$b\",\"text\":\"Remain Quiet\"},{\"id\":\"$c\",\"text\":\"Pretend it was someone else\"},{\"id\":\"$d\",\"text\":\"Shout \\\"It was me!\\\"\"}]},{\"id\":\"$a\",\"text\":\"Everyone turns and looks at you  suspiciously. Then someone smells  the smell. \\\"Oh my gawd!\\\" she shrieks. \\\"So that's what you're talking about?\\\" A little boy says \\\"Then how come you  noticed it?\\\"\\n\",\"options\":[{\"id\":\"$aa\",\"text\":\"Pretend it was someone else\"},{\"id\":\"$ab\",\"text\":\"Remain quiet\"},{\"id\":\"$ac\",\"text\":\"It wasn't as bad until now!\"}]},{\"id\":\"$b\",\"text\":\"Nobody else seemed to have noticed for a while. But then someone smells the smell. \\\"Oh lawd! Who did that?\\\" she yells. She was right. Maybe you  shouldn't have scorfed down an entire  breakfast burrito while rushing to work. But that doesn't matter right now. They discovered it. What do you do now?\\n\",\"options\":[{\"id\":\"$ba\",\"text\":\"Still say nothing\"},{\"id\":\"$bb\",\"text\":\"Whoever smelt it dealt it!\"},{\"id\":\"$bc\",\"text\":\"Shout \\\"It wasn't me!\\\"\"},{\"id\":\"$bd\",\"text\":\"It was me! I'm so sorry\"}]},{\"id\":\"$c\",\"text\":\"You wave your hand in front of your face as you wail \\\"Aww loordy loo who spewed the poo?\\\" Everyone stares at you. Then someone else smells the smell. \\\"Oh jaizus?\\\" Everyone around them was looking around for the source of the stench bomb, and you do the same. But then a little boy shouts \\\"Whoever smelt it dealt it!\\\". Everyone turns to you. \\\"You smelt it first\\\" the boy  said, pointing his finger at you,  \\\"Was it you?\\\"\\n\",\"options\":[{\"id\":\"$ca\",\"text\":\"Whoever denied it, supplied it!\"},{\"id\":\"$cb\",\"text\":\"Calmly say, \\\"No. Not me.\\\"\"},{\"id\":\"$cc\",\"text\":\"Accuse the boy\"}]}]}");
+module.exports = JSON.parse("{\"title\":\"Oh No! You Farted in an Elevator\",\"description\":\"You've unfortunately found yourself in a bit of a predicament. Make the right choices and you can get away scott free!\\n\",\"author\":\"Anshul Kharbanda\",\"parts\":[{\"id\":\"$\",\"text\":\"Oh no! You farted in an elevator!  What do you do?\\n\",\"options\":[{\"id\":\"$a\",\"text\":\"Shout \\\"It wasn't me!\\\"\"},{\"id\":\"$b\",\"text\":\"Remain Quiet\"},{\"id\":\"$c\",\"text\":\"Pretend it was someone else\"},{\"id\":\"$d\",\"text\":\"Shout \\\"It was me!\\\"\"}]},{\"id\":\"$a\",\"text\":\"Everyone turns and looks at you  suspiciously. Then someone smells  the smell. \\\"Oh my gawd!\\\" she shrieks. \\\"So that's what you're talking about?\\\" A little boy says \\\"Then how come you  noticed it?\\\"\\n\",\"options\":[{\"id\":\"$aa\",\"text\":\"Pretend it was someone else\"},{\"id\":\"$ab\",\"text\":\"Remain quiet\"},{\"id\":\"$ac\",\"text\":\"It wasn't as bad until now!\"}]},{\"id\":\"$b\",\"text\":\"Nobody else seemed to have noticed for a while. But then someone smells the smell. \\\"Oh lawd! Who did that?\\\" she yells. She was right. Maybe you  shouldn't have scorfed down an entire  breakfast burrito while rushing to work. But that doesn't matter right now. They discovered it. What do you do now?\\n\",\"options\":[{\"id\":\"$ba\",\"text\":\"Still say nothing\"},{\"id\":\"$bb\",\"text\":\"Whoever smelt it dealt it!\"},{\"id\":\"$bc\",\"text\":\"Shout \\\"It wasn't me!\\\"\"},{\"id\":\"$bd\",\"text\":\"It was me! I'm so sorry\"}]},{\"id\":\"$c\",\"text\":\"You wave your hand in front of your face as you wail \\\"Aww loordy loo who spewed the poo?\\\" Everyone stares at you. Then someone else smells the smell. \\\"Oh jaizus?\\\" Everyone around them was looking around for the source of the stench bomb, and you do the same. But then a little boy shouts \\\"Whoever smelt it dealt it!\\\". Everyone turns to you. \\\"You smelt it first\\\" the boy  said, pointing his finger at you, \\\"Was it you?\\\"\\n\",\"options\":[{\"id\":\"$ca\",\"text\":\"Whoever denied it, supplied it!\"},{\"id\":\"$cb\",\"text\":\"Calmly say, \\\"No. Not me.\\\"\"},{\"id\":\"$cc\",\"text\":\"Accuse the boy\"}]},{\"id\":\"$d\",\"text\":\"Everyone stares at you, confused. Then someone smells the smell. \\\"Aww sweet jesus up haaaigh\\\" she shrieks. \\\"Loord save us from this man's asshole. Give us mercy oh laaawd\\\". The elevator doors open. \\\"Ya'll need to get some hygene good sir\\\" she tells you as she leaves.\\n\",\"theend\":true,\"ending\":\"Honesty's the Best Policy\"}]}");
 
 /***/ }),
 
@@ -257,7 +277,7 @@ module.exports = content.locals || {};
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/**\r\n * Exactly what it says on the tin\r\n * \r\n * Author:  Anshul Kharbanda\r\n * Created: 10 - 26 - 2020\r\n */\n#app {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.container {\n  height: 90%;\n  width: 90%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; }\n\n#text, #options {\n  flex: 0;\n  margin: 16pt 0pt; }\n\n* {\n  font-family: Verdana, Geneva, Tahoma, sans-serif; }\n\n.option {\n  display: block;\n  margin: 8pt 0pt;\n  margin-left: auto;\n  padding: 4pt 8pt;\n  border-top-left-radius: 8pt;\n  border-bottom-left-radius: 8pt;\n  border: 1px solid;\n  border-color: transparent;\n  transition: border-color 0.25s ease-in-out; }\n\n.option:nth-child(1) {\n  background-color: aqua; }\n\n.option:nth-child(1):hover {\n  border-color: #00cccc; }\n\n.option:nth-child(2) {\n  background-color: lime; }\n\n.option:nth-child(2):hover {\n  border-color: #00cc00; }\n\n.option:nth-child(3) {\n  background-color: #ffdd00; }\n\n.option:nth-child(3):hover {\n  border-color: #ccb100; }\n\n.option:nth-child(4) {\n  background-color: lightsalmon; }\n\n.option:nth-child(4):hover {\n  border-color: #ff7c47; }\n\n.option:nth-child(5) {\n  background-color: violet; }\n\n.option:nth-child(5):hover {\n  border-color: #e855e8; }\n\n.option {\n  background-color: #eee; }\n\n.option:hover {\n  border-color: #d5d5d5; }\n", ""]);
+exports.push([module.i, "/**\r\n * Exactly what it says on the tin\r\n * \r\n * Author:  Anshul Kharbanda\r\n * Created: 10 - 26 - 2020\r\n */\n#app {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.container {\n  height: 90%;\n  width: 90%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; }\n\n#text, #controls {\n  flex: 0;\n  margin: 16pt 0pt; }\n\n* {\n  font-family: Verdana, Geneva, Tahoma, sans-serif; }\n\n.ending-text {\n  text-align: right;\n  font-weight: bold; }\n  .ending-text:before {\n    content: 'Ending: ';\n    font-weight: normal; }\n\n.option {\n  display: block;\n  margin: 8pt 0pt;\n  margin-left: auto;\n  padding: 4pt 8pt;\n  border-top-left-radius: 8pt;\n  border-bottom-left-radius: 8pt;\n  border: 1px solid;\n  border-color: transparent;\n  transition: border-color 0.25s ease-in-out; }\n\n.option:nth-of-type(1) {\n  background-color: aqua; }\n\n.option:nth-of-type(1):hover {\n  border-color: #00cccc; }\n\n.option:nth-of-type(2) {\n  background-color: lime; }\n\n.option:nth-of-type(2):hover {\n  border-color: #00cc00; }\n\n.option:nth-of-type(3) {\n  background-color: #ffdd00; }\n\n.option:nth-of-type(3):hover {\n  border-color: #ccb100; }\n\n.option:nth-of-type(4) {\n  background-color: lightsalmon; }\n\n.option:nth-of-type(4):hover {\n  border-color: #ff7c47; }\n\n.option:nth-of-type(5) {\n  background-color: violet; }\n\n.option:nth-of-type(5):hover {\n  border-color: #e855e8; }\n\n.option {\n  background-color: #eee; }\n\n.option:hover {\n  border-color: #d5d5d5; }\n", ""]);
 // Exports
 module.exports = exports;
 

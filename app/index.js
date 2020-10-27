@@ -31,25 +31,7 @@ function findStoryPart(id) {
 
 // Get text and options
 let textArea = document.getElementById('text')
-let optionsArea = document.getElementById('options')
-
-function selectStoryPart(id) {
-    console.group('selectStoryPart')
-    
-    // Find story part
-    console.log('Selecting part with id ' + id)
-    let part = findStoryPart(id)
-    console.log('Part:')
-    console.log(part)
-
-    // Set part
-    clear()
-    setText(part.text)
-    setOptions(part.options)
-
-    // End console group
-    console.groupEnd()
-}
+let controlsArea = document.getElementById('controls')
 
 function setText(text) {
     textArea.innerHTML = text
@@ -64,13 +46,49 @@ function setOptions(options) {
         button.addEventListener('click', function() {
             selectStoryPart(option.id)
         })
-        optionsArea.appendChild(button)        
+        controlsArea.appendChild(button)        
     }
+}
+
+function setEnding(ending) {
+    let endText = document.createElement('p')
+    endText.classList.add('ending-text')
+    endText.innerHTML = ending
+    controlsArea.appendChild(endText)
+    let button = document.createElement('button')
+    button.classList.add('option')
+    button.innerText = 'Play Again'
+    button.addEventListener('click', function() {
+        selectStoryPart('$')
+    })
+    controlsArea.appendChild(button)
+}
+
+function selectStoryPart(id) {
+    console.group('selectStoryPart')
+    
+    // Find story part
+    console.log('Selecting part with id ' + id)
+    let part = findStoryPart(id)
+    console.log('Part:')
+    console.log(part)
+
+    // Set part
+    clear()
+    setText(part.text)
+    if (part.theend) {
+        setEnding(part.ending)
+    } else {
+        setOptions(part.options)
+    }
+
+    // End console group
+    console.groupEnd()
 }
 
 function clear() {
     textArea.innerHTML = ''
-    optionsArea.innerHTML = ''
+    controlsArea.innerHTML = ''
 }
 
 // Let's get this story goin!

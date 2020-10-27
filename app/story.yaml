@@ -67,7 +67,7 @@ parts:
       and you do the same. But then a little boy
       shouts "Whoever smelt it dealt it!". Everyone
       turns to you. "You smelt it first" the boy 
-      said, pointing his finger at you,  "Was it you?"
+      said, pointing his finger at you, "Was it you?"
     options:
       - id: $ca
         text: "Whoever denied it, supplied it!"
@@ -75,3 +75,13 @@ parts:
         text: Calmly say, "No. Not me."
       - id: $cc
         text: Accuse the boy
+  - id: $d
+    text: >
+      Everyone stares at you, confused. Then someone
+      smells the smell. "Aww sweet jesus up haaaigh"
+      she shrieks. "Loord save us from this man's
+      asshole. Give us mercy oh laaawd". The elevator
+      doors open. "Ya'll need to get some hygene good sir"
+      she tells you as she leaves.
+    theend: true
+    ending: Honesty's the Best Policy
