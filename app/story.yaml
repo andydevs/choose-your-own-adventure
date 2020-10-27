@@ -26,9 +26,10 @@ parts:
     text: >
       Everyone turns and looks at you 
       suspiciously. Then someone smells 
-      the smell. "So that's what you're 
-      talking about?" Someone says. "Then 
-      how come you noticed it?"
+      the smell. "Oh my gawd!" she shrieks.
+      "So that's what you're talking about?"
+      A little boy says "Then how come you 
+      noticed it?"
     options:
       - id: $aa
         text: Pretend it was someone else
@@ -36,3 +37,41 @@ parts:
         text: Remain quiet
       - id: $ac
         text: "It wasn't as bad until now!"
+  - id: $b
+    text: >
+      Nobody else seemed to have noticed
+      for a while. But then someone smells
+      the smell. "Oh lawd! Who did that?"
+      she yells. She was right. Maybe you 
+      shouldn't have scorfed down an entire 
+      breakfast burrito while rushing to work.
+      But that doesn't matter right now. They
+      discovered it. What do you do now?
+    options:
+      - id: $ba
+        text: Still say nothing
+      - id: $bb
+        text: "Whoever smelt it dealt it!"
+      - id: $bc
+        text: Shout "It wasn't me!"
+      - id: $bd
+        text: "It was me! I'm so sorry"
+  - id: $c
+    text: >
+      You wave your hand in front of your
+      face as you wail "Aww loordy loo who
+      spewed the poo?" Everyone stares at you.
+      Then someone else smells the smell. "Oh
+      jaizus?" Everyone around them was looking
+      around for the source of the stench bomb,
+      and you do the same. But then a little boy
+      shouts "Whoever smelt it dealt it!". Everyone
+      turns to you. "You smelt it first" the boy 
+      said, pointing his finger at you,  "Was it you?"
+    options:
+      - id: $ca
+        text: "Whoever denied it, supplied it!"
+      - id: $cb
+        text: Calmly say, "No. Not me."
+      - id: $cc
+        text: Accuse the boy
