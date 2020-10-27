@@ -103,6 +103,8 @@ parts:
     options:
       - id: $aaa
         text: Insist
+      - id: $ab
+        text: Remain Silent
       - id: $cb
         text: Accuse the boy
 
@@ -131,6 +133,20 @@ parts:
         text: Talk to Her
       - id: $bdb
         text: Leave her Alone
+
+  - id: $aaa
+    text: >
+      You turn to the guy. "You... farted!" you say dramatically.
+      The man is confused... but then relieved "Ooooohhhh!" He says
+      "I thought you were talking about the bank robbery". Everyone
+      raises their eyebrows and turns to him. His face loses color,
+      as he realizes what he just said. "Uuuuuhhh". The elevator door 
+      opens, and he books it outside. 
+    options: 
+      - id: $aaaa
+        text: Stay in the Elevator
+      - id: $aaab
+        text: Run after Him
 
   - id: $bda
     text: >
