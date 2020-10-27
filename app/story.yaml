@@ -70,10 +70,8 @@ parts:
       said, pointing his finger at you, "Was it you?"
     options:
       - id: $ca
-        text: "Whoever denied it, supplied it!"
-      - id: $cb
         text: Calmly say, "No. Not me."
-      - id: $cc
+      - id: $cb
         text: Accuse the boy
   - id: $d
     text: >
