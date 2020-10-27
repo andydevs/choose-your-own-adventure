@@ -20,6 +20,11 @@ let errorPart = {
     ]
 }
 
+/**
+ * Find story part given id
+ * 
+ * @param {string} id ID of the story port
+ */
 function findStoryPart(id) {
     for (const part of story.parts) {
         if (part.id === id) {
@@ -29,41 +34,80 @@ function findStoryPart(id) {
     return errorPart
 }
 
-// Get text and options
+// Get text and controls area of element
 let textArea = document.getElementById('text')
 let controlsArea = document.getElementById('controls')
 
+/**
+ * Clear UI
+ */
+function clear() {
+    textArea.innerHTML = ''
+    controlsArea.innerHTML = ''
+}
+
+/**
+ * Create option button
+ * 
+ * @param {{ text: string, id: string }} option option spec
+ */
+function createOptionButton(option) {
+    let button = document.createElement('button')
+    button.classList.add('option')
+    button.innerText = option.text
+    button.addEventListener('click', function() {
+        selectStoryPart(option.id)
+    })
+    return button
+}
+
+/**
+ * Set text of story part on page
+ * 
+ * @param {string} text Text of story part
+ */
 function setText(text) {
     textArea.innerHTML = text
 }
 
+/**
+ * Set options on page
+ * 
+ * @param {[{ text: string, id: string }]} options list of option specs
+ */
 function setOptions(options) {
     let button
     for (const option of options) {
-        button = document.createElement('button')
-        button.classList.add('option')
-        button.innerText = option.text
-        button.addEventListener('click', function() {
-            selectStoryPart(option.id)
-        })
+        button = createOptionButton(option)
         controlsArea.appendChild(button)        
     }
 }
 
+/**
+ * Set ending text onto page
+ * 
+ * @param {string} ending ending text
+ */
 function setEnding(ending) {
+    // Set ending text
     let endText = document.createElement('p')
     endText.classList.add('ending-text')
     endText.innerHTML = ending
     controlsArea.appendChild(endText)
-    let button = document.createElement('button')
-    button.classList.add('option')
-    button.innerText = 'Play Again'
-    button.addEventListener('click', function() {
-        selectStoryPart('$')
+
+    // Create Play Again Button
+    let button = createOptionButton({
+        id: '$',
+        text: 'Play Again'
     })
     controlsArea.appendChild(button)
 }
 
+/**
+ * Set story part to given id
+ * 
+ * @param {string} id ID of story part to set
+ */
 function selectStoryPart(id) {
     console.group('selectStoryPart')
     
@@ -82,13 +126,7 @@ function selectStoryPart(id) {
         setOptions(part.options)
     }
 
-    // End console group
     console.groupEnd()
-}
-
-function clear() {
-    textArea.innerHTML = ''
-    controlsArea.innerHTML = ''
 }
 
 // Let's get this story goin!

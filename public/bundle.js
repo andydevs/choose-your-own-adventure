@@ -122,6 +122,11 @@ var errorPart = {
     text: 'Go to the beginning'
   }]
 };
+/**
+ * Find story part given id
+ * 
+ * @param {string} id ID of the story port
+ */
 
 function findStoryPart(id) {
   var _iterator = _createForOfIteratorHelper(_story_yaml__WEBPACK_IMPORTED_MODULE_1__.parts),
@@ -142,15 +147,51 @@ function findStoryPart(id) {
   }
 
   return errorPart;
-} // Get text and options
+} // Get text and controls area of element
 
 
 var textArea = document.getElementById('text');
 var controlsArea = document.getElementById('controls');
+/**
+ * Clear UI
+ */
+
+function clear() {
+  textArea.innerHTML = '';
+  controlsArea.innerHTML = '';
+}
+/**
+ * Create option button
+ * 
+ * @param {{ text: string, id: string }} option option spec
+ */
+
+
+function createOptionButton(option) {
+  var button = document.createElement('button');
+  button.classList.add('option');
+  button.innerText = option.text;
+  button.addEventListener('click', function () {
+    selectStoryPart(option.id);
+  });
+  return button;
+}
+/**
+ * Set text of story part on page
+ * 
+ * @param {string} text Text of story part
+ */
+
 
 function setText(text) {
   textArea.innerHTML = text;
 }
+/**
+ * Set options on page
+ * 
+ * @param {[{ text: string, id: string }]} options list of option specs
+ */
+
 
 function setOptions(options) {
   var button;
@@ -159,19 +200,10 @@ function setOptions(options) {
       _step2;
 
   try {
-    var _loop = function _loop() {
-      var option = _step2.value;
-      button = document.createElement('button');
-      button.classList.add('option');
-      button.innerText = option.text;
-      button.addEventListener('click', function () {
-        selectStoryPart(option.id);
-      });
-      controlsArea.appendChild(button);
-    };
-
     for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-      _loop();
+      var option = _step2.value;
+      button = createOptionButton(option);
+      controlsArea.appendChild(button);
     }
   } catch (err) {
     _iterator2.e(err);
@@ -179,20 +211,32 @@ function setOptions(options) {
     _iterator2.f();
   }
 }
+/**
+ * Set ending text onto page
+ * 
+ * @param {string} ending ending text
+ */
+
 
 function setEnding(ending) {
+  // Set ending text
   var endText = document.createElement('p');
   endText.classList.add('ending-text');
   endText.innerHTML = ending;
-  controlsArea.appendChild(endText);
-  var button = document.createElement('button');
-  button.classList.add('option');
-  button.innerText = 'Play Again';
-  button.addEventListener('click', function () {
-    selectStoryPart('$');
+  controlsArea.appendChild(endText); // Create Play Again Button
+
+  var button = createOptionButton({
+    id: '$',
+    text: 'Play Again'
   });
   controlsArea.appendChild(button);
 }
+/**
+ * Set story part to given id
+ * 
+ * @param {string} id ID of story part to set
+ */
+
 
 function selectStoryPart(id) {
   console.group('selectStoryPart'); // Find story part
@@ -209,15 +253,9 @@ function selectStoryPart(id) {
     setEnding(part.ending);
   } else {
     setOptions(part.options);
-  } // End console group
-
+  }
 
   console.groupEnd();
-}
-
-function clear() {
-  textArea.innerHTML = '';
-  controlsArea.innerHTML = '';
 } // Let's get this story goin!
 
 
