@@ -97,8 +97,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style/main.scss */ "./app/style/main.scss");
 /* harmony import */ var _style_main_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_main_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _story_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./story.json */ "./app/story.json");
-var _story_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./story.json */ "./app/story.json", 1);
+/* harmony import */ var _story_yaml__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./story.yaml */ "./app/story.yaml");
+var _story_yaml__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./story.yaml */ "./app/story.yaml", 1);
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -106,7 +106,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 /**
- * Use this template for building basic static websites
+ * Exactly what it says on the tin
  * 
  * Author:  Anshul Kharbanda
  * Created: 10 - 26 - 2020
@@ -115,16 +115,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
  // Error part
 
 var errorPart = {
-  id: '-1',
+  id: '~',
   text: "Well... looks like you entered a part of \n        the story that doesn't exist... how about that?",
   options: [{
-    id: '0',
+    id: '$',
     text: 'Go to the beginning'
   }]
 };
 
 function findStoryPart(id) {
-  var _iterator = _createForOfIteratorHelper(_story_json__WEBPACK_IMPORTED_MODULE_1__.parts),
+  var _iterator = _createForOfIteratorHelper(_story_yaml__WEBPACK_IMPORTED_MODULE_1__.parts),
       _step;
 
   try {
@@ -198,21 +198,22 @@ function setOptions(options) {
 function clear() {
   textArea.innerHTML = '';
   optionsArea.innerHTML = '';
-} // Set initial part
+} // Let's get this story goin!
 
 
-selectStoryPart('0');
+document.title = _story_yaml__WEBPACK_IMPORTED_MODULE_1__.title;
+selectStoryPart('$');
 
 /***/ }),
 
-/***/ "./app/story.json":
+/***/ "./app/story.yaml":
 /*!************************!*\
-  !*** ./app/story.json ***!
+  !*** ./app/story.yaml ***!
   \************************/
-/*! exports provided: author, parts, default */
+/*! exports provided: title, description, author, parts, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"author\":\"Anshul Kharbanda\",\"parts\":[{\"id\":\"0\",\"text\":\"Oh no! You farted in an elevator! What do you do?\",\"options\":[{\"id\":\"1\",\"text\":\"Shout \\\"It wasn't me!\\\"\"},{\"id\":\"2\",\"text\":\"Remain Quiet\"},{\"id\":\"3\",\"text\":\"Pretend it was someone else\"},{\"id\":\"4\",\"text\":\"Shout \\\"It was me!\\\"\"}]},{\"id\":\"1\",\"text\":\"Everyone turns and looks at you suspiciously. Then someone smells the smell. \\\"So that's what you're talking about?\\\" Someone says. \\\"Then how come you noticed it?\\\"\",\"options\":[{\"id\":\"11\",\"text\":\"Pretend it was someone else\"},{\"id\":\"12\",\"text\":\"Remain Quiet\"},{\"id\":\"13\",\"text\":\"\\\"It wasn't as bad until now!\\\"\"}]}]}");
+module.exports = JSON.parse("{\"title\":\"Oh No! You Farted in an Elevator\",\"description\":\"You've unfortunately found yourself in a bit of a predicament. Make the right choices and you can get away scott free!\\n\",\"author\":\"Anshul Kharbanda\",\"parts\":[{\"id\":\"$\",\"text\":\"Oh no! You farted in an elevator!  What do you do?\\n\",\"options\":[{\"id\":\"$a\",\"text\":\"Shout \\\"It wasn't me!\\\"\"},{\"id\":\"$b\",\"text\":\"Remain Quiet\"},{\"id\":\"$c\",\"text\":\"Pretend it was someone else\"},{\"id\":\"$d\",\"text\":\"Shout \\\"It was me!\\\"\"}]},{\"id\":\"$a\",\"text\":\"Everyone turns and looks at you  suspiciously. Then someone smells  the smell. \\\"So that's what you're  talking about?\\\" Someone says. \\\"Then  how come you noticed it?\\\"\\n\",\"options\":[{\"id\":\"$aa\",\"text\":\"Pretend it was someone else\"},{\"id\":\"$ab\",\"text\":\"Remain quiet\"},{\"id\":\"$ac\",\"text\":\"It wasn't as bad until now!\"}]}]}");
 
 /***/ }),
 
@@ -256,7 +257,7 @@ module.exports = content.locals || {};
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/**\r\n * Use this template for building basic static websites\r\n * \r\n * Author:  Anshul Kharbanda\r\n * Created: 10 - 26 - 2020\r\n */\n#app {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.container {\n  height: 90%;\n  width: 90%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; }\n\n#text, #options {\n  flex: 0;\n  margin: 16pt 0pt; }\n\n* {\n  font-family: Verdana, Geneva, Tahoma, sans-serif; }\n\n.option {\n  display: block;\n  margin: 8pt 0pt;\n  margin-left: auto;\n  padding: 4pt 8pt;\n  border-top-left-radius: 8pt;\n  border-bottom-left-radius: 8pt;\n  border: 1px solid;\n  border-color: transparent;\n  transition: border-color 0.25s ease-in-out; }\n\n.option:nth-child(1) {\n  background-color: aqua; }\n\n.option:nth-child(1):hover {\n  border-color: #00cccc; }\n\n.option:nth-child(2) {\n  background-color: lime; }\n\n.option:nth-child(2):hover {\n  border-color: #00cc00; }\n\n.option:nth-child(3) {\n  background-color: #ffdd00; }\n\n.option:nth-child(3):hover {\n  border-color: #ccb100; }\n\n.option:nth-child(4) {\n  background-color: lightsalmon; }\n\n.option:nth-child(4):hover {\n  border-color: #ff7c47; }\n\n.option:nth-child(5) {\n  background-color: violet; }\n\n.option:nth-child(5):hover {\n  border-color: #e855e8; }\n\n.option {\n  background-color: #eee; }\n\n.option:hover {\n  border-color: #d5d5d5; }\n", ""]);
+exports.push([module.i, "/**\r\n * Exactly what it says on the tin\r\n * \r\n * Author:  Anshul Kharbanda\r\n * Created: 10 - 26 - 2020\r\n */\n#app {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.container {\n  height: 90%;\n  width: 90%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; }\n\n#text, #options {\n  flex: 0;\n  margin: 16pt 0pt; }\n\n* {\n  font-family: Verdana, Geneva, Tahoma, sans-serif; }\n\n.option {\n  display: block;\n  margin: 8pt 0pt;\n  margin-left: auto;\n  padding: 4pt 8pt;\n  border-top-left-radius: 8pt;\n  border-bottom-left-radius: 8pt;\n  border: 1px solid;\n  border-color: transparent;\n  transition: border-color 0.25s ease-in-out; }\n\n.option:nth-child(1) {\n  background-color: aqua; }\n\n.option:nth-child(1):hover {\n  border-color: #00cccc; }\n\n.option:nth-child(2) {\n  background-color: lime; }\n\n.option:nth-child(2):hover {\n  border-color: #00cc00; }\n\n.option:nth-child(3) {\n  background-color: #ffdd00; }\n\n.option:nth-child(3):hover {\n  border-color: #ccb100; }\n\n.option:nth-child(4) {\n  background-color: lightsalmon; }\n\n.option:nth-child(4):hover {\n  border-color: #ff7c47; }\n\n.option:nth-child(5) {\n  background-color: violet; }\n\n.option:nth-child(5):hover {\n  border-color: #e855e8; }\n\n.option {\n  background-color: #eee; }\n\n.option:hover {\n  border-color: #d5d5d5; }\n", ""]);
 // Exports
 module.exports = exports;
 

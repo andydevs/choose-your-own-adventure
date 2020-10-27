@@ -45,6 +45,11 @@ module.exports = {
                 test: /\.(jpg|png|svg)$/,
                 exclude: /node_modules/,
                 use: 'file-loader'
+            },
+            {
+                test: /\.ya?ml$/,
+                type: 'json',
+                use: 'yaml-loader'
             }
         ]
     }

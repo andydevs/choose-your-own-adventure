@@ -1,20 +1,20 @@
 /**
- * Use this template for building basic static websites
+ * Exactly what it says on the tin
  * 
  * Author:  Anshul Kharbanda
  * Created: 10 - 26 - 2020
  */
 import './style/main.scss'
-import story from './story.json'
+import story from './story.yaml'
 
 // Error part
 let errorPart = {
-    id: '-1',
+    id: '~',
     text: `Well... looks like you entered a part of 
         the story that doesn\'t exist... how about that?`,
     options: [
         {
-            id: '0',
+            id: '$',
             text: 'Go to the beginning'
         }
     ]
@@ -73,5 +73,6 @@ function clear() {
     optionsArea.innerHTML = ''
 }
 
-// Set initial part
-selectStoryPart('0')
+// Let's get this story goin!
+document.title = story.title
+selectStoryPart('$')

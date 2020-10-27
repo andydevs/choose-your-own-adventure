@@ -1,0 +1,38 @@
+# Exactly what it says on the tin
+# 
+# Author:  Anshul Kharbanda
+# Created: 10 - 26 - 2020
+title: Oh No! You Farted in an Elevator
+description: >
+  You've unfortunately found yourself in
+  a bit of a predicament. Make the right
+  choices and you can get away scott free!
+author: Anshul Kharbanda
+parts:
+  - id: $
+    text: >
+      Oh no! You farted in an elevator! 
+      What do you do?
+    options:
+      - id: $a
+        text: Shout "It wasn't me!"
+      - id: $b
+        text: Remain Quiet
+      - id: $c
+        text: Pretend it was someone else
+      - id: $d
+        text: Shout "It was me!"
+  - id: $a
+    text: >
+      Everyone turns and looks at you 
+      suspiciously. Then someone smells 
+      the smell. "So that's what you're 
+      talking about?" Someone says. "Then 
+      how come you noticed it?"
+    options:
+      - id: $aa
+        text: Pretend it was someone else
+      - id: $ab
+        text: Remain quiet
+      - id: $ac
+        text: "It wasn't as bad until now!"
