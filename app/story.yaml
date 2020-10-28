@@ -111,9 +111,9 @@ parts:
   - id: $ab
     text: >
       You don't say nothing. "Well? What do you have 
-      to say for yourself?" Everyone cringes at the 
-      stench of the mound of jalepenio nachos you shoved 
-      in your gob while binge watching The  Office 
+      to say?" someone asks. Suddenly, everyone cringes 
+      at the stench of the mound of jalepenio nachos you 
+      shoved in your gob while binge watching The Office 
       last night. The jig is up. Everybody knows now. 
       All you can do is hang your head in shame.
     theend: true
@@ -133,6 +133,19 @@ parts:
         text: Talk to Her
       - id: $bdb
         text: Leave her Alone
+
+  - id: $cb
+    text: >
+      You point the finger back at him "Well what about you?". "Of
+      course it isn't me!" he retorts, You fold your arms, grinning.
+      "Whoever denied it supplied it!" you say, confidently. "I got
+      you now!" The boy loses color. You notice he has one of his 
+      hands behind his back.
+    options:
+      - id: $cba
+        text: Rest your Case
+      - id: $cbb
+        text: Point out the Hand
 
   - id: $aaa
     text: >
