@@ -34,18 +34,6 @@ function findStoryPart(id) {
     return errorPart
 }
 
-// Get text and controls area of element
-let textArea = document.getElementById('text')
-let controlsArea = document.getElementById('controls')
-
-/**
- * Clear UI
- */
-function clear() {
-    textArea.innerHTML = ''
-    controlsArea.innerHTML = ''
-}
-
 /**
  * Create option button
  * 
@@ -62,45 +50,76 @@ function createOptionButton(option) {
 }
 
 /**
- * Set text of story part on page
+ * Create options control area
  * 
- * @param {string} text Text of story part
+ * @param {[{ text: string, id: string }]} options options array
  */
-function setText(text) {
-    textArea.innerHTML = text
-}
-
-/**
- * Set options on page
- * 
- * @param {[{ text: string, id: string }]} options list of option specs
- */
-function setOptions(options) {
+function createOptionsArea(options) {
+    let optionsArea = document.createElement('div')
+    optionsArea.classList.add('options')
     let button
     for (const option of options) {
         button = createOptionButton(option)
-        controlsArea.appendChild(button)        
+        optionsArea.appendChild(button)
     }
+    return optionsArea
 }
 
 /**
- * Set ending text onto page
+ * Create ending control area
  * 
  * @param {string} ending ending text
  */
-function setEnding(ending) {
-    // Set ending text
-    let endText = document.createElement('p')
-    endText.classList.add('ending-text')
-    endText.innerHTML = ending
-    controlsArea.appendChild(endText)
+function createEndingArea(ending) {
+    // Create ending area
+    let endingArea = document.createElement('div')
+    endingArea.classList.add('ending')
 
-    // Create Play Again Button
+    // Create ending text
+    let endingText = document.createElement('p')
+    endingText.classList.add('ending-text')
+    endingText.innerHTML = ending
+    endingArea.appendChild(endingText)
+
+    // Create play again option
     let button = createOptionButton({
         id: '$',
         text: 'Play Again'
     })
-    controlsArea.appendChild(button)
+    endingArea.appendChild(button)
+
+    // Return ending area
+    return endingArea
+}
+
+// Get text and controls area of element
+let textArea = document.getElementById('text')
+let controlsArea = document.getElementById('controls')
+
+/**
+ * Clear UI
+ */
+function clear() {
+    textArea.innerHTML = ''
+    controlsArea.innerHTML = ''
+}
+
+/**
+ * Set story part in UI
+ * 
+ * @param {Story} part story part
+ */
+function setStoryPart(part) {
+    // Set part
+    clear()
+    textArea.innerHTML = part.text
+    let controlArea
+    if (part.theend) {
+        controlArea = createEndingArea(part.ending)
+    } else {
+        controlArea = createOptionsArea(part.options)
+    }
+    controlsArea.appendChild(controlArea)
 }
 
 /**
@@ -118,13 +137,7 @@ function selectStoryPart(id) {
     console.log(part)
 
     // Set part
-    clear()
-    setText(part.text)
-    if (part.theend) {
-        setEnding(part.ending)
-    } else {
-        setOptions(part.options)
-    }
+    setStoryPart(part)
 
     console.groupEnd()
 }
