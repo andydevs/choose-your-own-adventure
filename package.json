@@ -13,8 +13,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server",
-    "deploy": "gh-pages -d public"
+    "start": "webpack-dev-server"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",

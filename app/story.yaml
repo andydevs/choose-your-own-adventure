@@ -16,7 +16,7 @@ parts:
 
   - id: $
     text: >
-      Oh no! You farted in an elevator! 
+      Oh no! You farted in an elevator!
       What do you do?
     options:
       - id: $a
