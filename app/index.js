@@ -92,34 +92,32 @@ function createEndingArea(ending) {
     return endingArea
 }
 
-// Get text and controls area of element
-let textArea = document.getElementById('text')
-let controlsArea = document.getElementById('controls')
+// Create UI object
+const UI = {
+    // Document areas
+    textArea: document.getElementById('cyoa-text'),
+    controlsArea: document.getElementById('cyoa-controls'),
 
-/**
- * Clear UI
- */
-function clear() {
-    textArea.innerHTML = ''
-    controlsArea.innerHTML = ''
-}
+    // Clear UI
+    clear() {
+        this.textArea.innerHTML = ''
+        this.controlsArea.innerHTML = ''
+    },
 
-/**
- * Set story part in UI
- * 
- * @param {Story} part story part
- */
-function setStoryPart(part) {
-    // Set part
-    clear()
-    textArea.innerHTML = part.text
-    let controlArea
-    if (part.theend) {
-        controlArea = createEndingArea(part.ending)
-    } else {
-        controlArea = createOptionsArea(part.options)
+    // Set story part
+    setStoryPart(part) {
+        // Set part
+        this.clear()
+        this.textArea.innerHTML = part.text
+        let controlArea
+        if (part.theend) {
+            controlArea = createEndingArea(part.ending)
+        }
+        else {
+            controlArea = createOptionsArea(part.options)
+        }
+        this.controlsArea.appendChild(controlArea)
     }
-    controlsArea.appendChild(controlArea)
 }
 
 /**
@@ -137,11 +135,11 @@ function selectStoryPart(id) {
     console.log(part)
 
     // Set part
-    setStoryPart(part)
+    UI.setStoryPart(part)
 
     console.groupEnd()
 }
 
-// Let's get this story goin!
+// Let's start the freaking story!
 document.title = story.title
 selectStoryPart('$')

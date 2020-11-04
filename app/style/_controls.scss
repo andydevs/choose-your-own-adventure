@@ -1,0 +1,61 @@
+/**
+ * Exactly what it says on the tin
+ * 
+ * Author:  Anshul Kharbanda
+ * Created: 10 - 26 - 2020
+ */
+
+// Ending
+.ending-text {
+    text-align: right;
+    font-weight: bold;
+    &:before {
+        content: 'Ending: ';
+        font-weight: normal;
+    }
+}
+
+// Option buttons
+.option {
+    // Positioning
+    display: block;
+    margin: 8pt 0pt;
+    margin-left: auto;
+
+    // Size and shape
+    padding: 4pt 8pt;
+    border-top-left-radius: 8pt;
+    border-bottom-left-radius: 8pt;
+
+    // Border
+    border: 1px solid;
+    border-color: transparent;
+    transition: border-color 0.25s ease-in-out;
+}
+
+// Option coloring
+$option-colors: (
+    aqua, 
+    lime, 
+    #ffdd00, 
+    lightsalmon,
+    violet,
+);
+@for $i from 1 through length($option-colors) {
+    $color: nth($option-colors, $i);
+    .option:nth-of-type(#{$i}) {
+        background-color: $color;
+    }
+    .option:nth-of-type(#{$i}):hover {
+        border-color: darken($color, 10%);
+    }
+}
+
+// Default option coloring
+$default-color: #eee;
+.option {
+    background-color: $default-color;
+}
+.option:hover {
+    border-color: darken($default-color, 10);
+}
