@@ -1,8 +1,8 @@
 /**
- * Use this template for building basic static websites
+ * Exactly what it says on the tin
  * 
- * Author:  [Your Name Here]
- * Created: [Date of Creation]
+ * Author:  Anshul Kharbanda
+ * Created: 10 - 26 - 2020
  */
 const path = require('path')
 
