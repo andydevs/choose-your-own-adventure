@@ -6,95 +6,10 @@
  */
 import './style/main.scss'
 import StoryDB from './story-db'
+import * as UI from './ui'
 
 // Create story database
 const story = new StoryDB(require('./story.yaml'))
-
-/**
- * Create option button
- * 
- * @param {{ text: string, id: string }} option option spec
- */
-function createOptionButton(option) {
-    let button = document.createElement('button')
-    button.classList.add('option')
-    button.innerText = option.text
-    button.addEventListener('click', function() {
-        selectStoryPart(option.id)
-    })
-    return button
-}
-
-/**
- * Create options control area
- * 
- * @param {[{ text: string, id: string }]} options options array
- */
-function createOptionsArea(options) {
-    let optionsArea = document.createElement('div')
-    optionsArea.classList.add('options')
-    let button
-    for (const option of options) {
-        button = createOptionButton(option)
-        optionsArea.appendChild(button)
-    }
-    return optionsArea
-}
-
-/**
- * Create ending control area
- * 
- * @param {string} ending ending text
- */
-function createEndingArea(ending) {
-    // Create ending area
-    let endingArea = document.createElement('div')
-    endingArea.classList.add('ending')
-
-    // Create ending text
-    let endingText = document.createElement('p')
-    endingText.classList.add('ending-text')
-    endingText.innerHTML = ending
-    endingArea.appendChild(endingText)
-
-    // Create play again option
-    let button = createOptionButton({
-        id: '$',
-        text: 'Play Again'
-    })
-    endingArea.appendChild(button)
-
-    // Return ending area
-    return endingArea
-}
-
-// Create UI object
-const UI = {
-    // Document areas
-    textArea: document.getElementById('cyoa-text'),
-    controlsArea: document.getElementById('cyoa-controls'),
-
-    // Clear UI
-    clear() {
-        this.textArea.innerHTML = ''
-        this.controlsArea.innerHTML = ''
-    },
-
-    // Set story part
-    setStoryPart(part) {
-        // Set part
-        this.clear()
-        this.textArea.innerHTML = part.text
-        let controlArea
-        if (part.theend) {
-            controlArea = createEndingArea(part.ending)
-        }
-        else {
-            controlArea = createOptionsArea(part.options)
-        }
-        this.controlsArea.appendChild(controlArea)
-    }
-}
 
 /**
  * Set story part to given id
@@ -117,4 +32,5 @@ function selectStoryPart(id) {
 
 // Let's start the freaking story!
 document.title = story.title
+UI.storyId$.subscribe(selectStoryPart)
 selectStoryPart('$')
