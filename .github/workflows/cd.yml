@@ -3,17 +3,24 @@ on:
   push:
     branches: [ master ]
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
+      # Setup
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
-      - name: Install Packages
-        run: npm install
+      - name: Clean Install Packages
+        run: npm ci
+
+      # Build and test
       - name: Build Site
         run: npm run build
+      - name: Run Unit Tests
+        run: npm test
+
+      # Deploy
       - name: Deploy to GitHub Pages
         uses: rdarida/simple-github-pages-deploy-action@v1
         with:
