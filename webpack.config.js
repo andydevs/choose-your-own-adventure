@@ -18,8 +18,7 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),
         historyApiFallback: true,
-        compress: true,
-        open: true
+        compress: true
     },
     module: {
         rules: [

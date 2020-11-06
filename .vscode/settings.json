@@ -51,6 +51,8 @@
         ".yarn/unplugged": true,
         ".yarn/build-state.yml": true,
         ".yarn/install-state.gz": true,
-        "**/.pnp.*": true
+        "**/.pnp.*": true,
+        "**/videos/": true,
+        "**/screenshots/": true
     }
 }
