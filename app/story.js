@@ -4,6 +4,7 @@
  * Author:  Anshul Kharbanda
  * Created: 10 - 26 - 2020
  */
+import storyData from './story.yaml'
 
 // Error part
 let errorPart = {
@@ -21,18 +22,9 @@ let errorPart = {
 /**
  * Story "Database" holds story parts for easy access
  */
-export default class StoryDB {
-    /**
-     * Create story database from story file data
-     * 
-     * @param {Story} story story file data
-     */
-    constructor(story) {
-        this.title = story.title
-        this.description = story.description
-        this.author = story.author
-        this.parts = story.parts
-    }
+export default {
+    // Expand story data into object
+    ...storyData,
 
     /**
      * Find story part given id

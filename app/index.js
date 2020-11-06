@@ -5,11 +5,8 @@
  * Created: 10 - 26 - 2020
  */
 import './style/main.scss'
-import StoryDB from './story-db'
+import story from './story'
 import * as UI from './ui'
-
-// Create story database
-const story = new StoryDB(require('./story.yaml'))
 
 /**
  * Set story part to given id
