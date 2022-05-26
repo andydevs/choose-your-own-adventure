@@ -22,7 +22,7 @@ parts:
       - id: $a
         text: Shout "It wasn't me!"
       - id: $b
-        text: Remain Quiet
+        text: Remain quiet
       - id: $c
         text: Pretend it was someone else
       - id: $d
@@ -89,7 +89,7 @@ parts:
       doors open. "Ya'll need to get some hygene good 
       sir" she tells you as she leaves.
     theend: true
-    ending: Honesty's the Best Policy
+    ending: Honesty's the best policy
 
   - id: $aa
     text: >
@@ -104,7 +104,7 @@ parts:
       - id: $aaa
         text: Insist
       - id: $ab
-        text: Remain Silent
+        text: Remain silent
       - id: $cb
         text: Accuse the boy
 
@@ -130,9 +130,9 @@ parts:
       entire life
     options:
       - id: $bda
-        text: Talk to Her
+        text: Talk to her
       - id: $bdb
-        text: Leave her Alone
+        text: Leave her alone
 
   - id: $cb
     text: >
@@ -143,9 +143,9 @@ parts:
       hands behind his back.
     options:
       - id: $cba
-        text: Rest your Case
+        text: Rest your case
       - id: $cbb
-        text: Point out the Hand
+        text: Point out the hand
 
   - id: $aaa
     text: >
@@ -157,9 +157,9 @@ parts:
       opens, and he books it outside. 
     options: 
       - id: $aaaa
-        text: Stay in the Elevator
+        text: Stay in the elevator
       - id: $aaab
-        text: Run after Him
+        text: Run after him
 
   - id: $bda
     text: >
@@ -170,7 +170,7 @@ parts:
       years later, as an example of how even our most embarassing
       moments can lead us to find love.
     theend: true
-    ending: Love at First Sniff
+    ending: Love at first sniff
   
   - id: $bdb
     text: >
@@ -184,9 +184,9 @@ parts:
       do you do?
     options:
       - id: $bdba
-        text: Go to the Office
+        text: Go to the office
       - id: $bdbb
-        text: Quit your Job
+        text: Quit your job
 
   - id: $bdba
     text: >
@@ -195,7 +195,7 @@ parts:
       brought you in here?"
     options:
       - id: $bdbaa
-        text: Joke about Being Promoted
+        text: Joke about being promoted
       - id: $bdbab
         text: It's because you were late again.
       - id: $bdbac
@@ -224,3 +224,30 @@ parts:
       pack your things.
     theend: true
     ending: Fired
+
+  - id: $bdbac
+    text: >
+      "Well you know what?" the boss asks rhetorically, "I... I don't
+      remember either. It was probably nothing." You nod nervously.
+      "Well, back to work! Time is money"
+    options:
+      - id: $bdbaca
+        text: Get back to work
+      - id: $bdbb
+        text: Quit your job
+    
+  - id: $bdbb
+    text: >
+      "How about up your A**!" You pull a mic out of your pocket and 
+      drop a sick diss track on your boss. "You'll never make it as
+      a rap artist! Give it up!" your boss retorts. "Shut yo b**** 
+      a** up!" you shut him down and go even harder on the beat. As
+      you walk out the door of the office building, your hype crowd 
+      follows you. They follow you all the way to your home, to your
+      studio, as you drop the hottest trach the world has ever been
+      graced to listen to. Jeff Besos himself smashes into your house
+      in his Blue Origin capsule and gives you a million dollars in
+      Amazon Basics merchendise. Now all that awaits is a life of exotic
+      cars and big ass houses. What more could someone ask for?
+    theend: true
+    ending: Dat "Lil' Poop Stain" Life
