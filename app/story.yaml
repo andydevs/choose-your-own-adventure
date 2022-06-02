@@ -161,6 +161,28 @@ parts:
       - id: $aaab
         text: Run after him
 
+  - id: $aaaa
+    text: >
+      Well, whatever was going on there, probably didn't matter to you.
+      You weren't a cop, and it didn't look like he was taking anything
+      from you. Suddenly, you feel a vibration in your left pocket. You
+      reach in and pull out an old mobile phone that isn't yours. Someone 
+      by the name of "Klaus" seems to be calling you on this phone.
+    options:
+      - id: $aaaaa
+        text: Answer the phone
+      - id: $aaaab
+        text: Ignore it
+      - id: $aaaac
+        text: Throw it at the waaaaalllll
+
+  - id: $aaaac
+    text: >
+      You yeet that boi at the wall. It cracks open, letting the battery 
+      fall out and disconnecting the phone. Then the building explodes
+    theend: true
+    ending: Wait, what?
+
   - id: $bda
     text: >
       "Hey, really sorry again about what happened there", you say
