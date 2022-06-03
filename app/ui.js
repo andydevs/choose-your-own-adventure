@@ -13,7 +13,7 @@ const controlsArea = document.getElementById('cyoa-controls')
 /**
  * Create option button
  * 
- * @param {object}  option option spec
+ * @param {object} option option spec
  */
 function createOptionButton(option) {
     let button = document.createElement('button')
@@ -29,7 +29,7 @@ function createOptionButton(option) {
 /**
  * Create options control area
  * 
- * @param {[{ text: string, id: string }]} options options array
+ * @param {Array} options options array
  */
 function createOptionsArea(options) {
     let optionsArea = document.createElement('div')
