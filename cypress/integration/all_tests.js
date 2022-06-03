@@ -67,11 +67,7 @@ describe('App Tests', () => {
     specify('Run a scenario', () => {
         // Click a series of options
         for (const option of scenario.options) {
-            cy.contains('.option', 'Remain Quiet').click()
-            cy.contains('.option', 'Apologize').click()
-            cy.contains('.option', 'Leave her Alone').click()
-            cy.contains('.option', 'Go to the Office').click()
-            cy.contains('.option', 'Joke about Being Promoted').click()
+            cy.contains('.option', option).click()
         }
 
         // Check ending text
