@@ -4,6 +4,10 @@
  * Author:  Anshul Kharbanda
  * Created: 10 - 26 - 2020
  */
+import moreOption from '../fixtures/more-option.json'
+import ending from '../fixtures/ending.json'
+import scenario from '../fixtures/scenario.json'
+
 describe('App Tests', () => {
     beforeEach(() => {
         // Visit site before each
@@ -25,7 +29,7 @@ describe('App Tests', () => {
 
     specify('Click an option with more options', () => {
         // Click an option
-        cy.contains('.option', 'Remain Quiet').click()
+        cy.contains('.option', moreOption.text).click()
 
         // There should be text
         cy.get('#cyoa-text').should('not.be.empty')
@@ -41,7 +45,7 @@ describe('App Tests', () => {
 
     specify('Click an option with an ending', () => {
         // Click an option with ending
-        cy.contains('.option', 'Shout "It was me!"').click()
+        cy.contains('.option', ending.text).click()
 
         // There should be text
         cy.get('#cyoa-text').should('not.be.empty')
@@ -52,8 +56,7 @@ describe('App Tests', () => {
         cy.get('#cyoa-controls > .ending').should('exist')
 
         // Ending should contain ending text
-        cy.get('.ending > .ending-text')
-            .should('contain', 'Honesty\'s the Best Policy')
+        cy.get('.ending > .ending-text').should('exist')
 
         // Ending should contain an option
         cy.get('.ending')
@@ -63,15 +66,17 @@ describe('App Tests', () => {
 
     specify('Run a scenario', () => {
         // Click a series of options
-        cy.contains('.option', 'Remain Quiet').click()
-        cy.contains('.option', 'Apologize').click()
-        cy.contains('.option', 'Leave her Alone').click()
-        cy.contains('.option', 'Go to the Office').click()
-        cy.contains('.option', 'Joke about Being Promoted').click()
+        for (const option of scenario.options) {
+            cy.contains('.option', 'Remain Quiet').click()
+            cy.contains('.option', 'Apologize').click()
+            cy.contains('.option', 'Leave her Alone').click()
+            cy.contains('.option', 'Go to the Office').click()
+            cy.contains('.option', 'Joke about Being Promoted').click()
+        }
 
         // Check ending text
         cy.get('.ending > .ending-text')
-            .should('contain', 'Dat Middle Manager Life')
+            .should('contain', scenario.ending)
 
         // Click play again
         cy.get('.ending')
