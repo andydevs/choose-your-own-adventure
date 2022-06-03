@@ -176,6 +176,35 @@ parts:
       - id: $aaaac
         text: Throw it at the waaaaalllll
 
+  - id: $aaaab
+    text: >
+      You put it back in your pocket. Best not to let them know you didn't 
+      answer right away, otherwise something suspicious might happen. As 
+      you near the parking lot exit, the vibrations in your pocket stop.
+      Suddenly, you hear a loud bang coming from behind you. Instinctively,
+      you book it to the exit, never looking back because cool guys don't
+      look at explosions. You make it out just in time to see the building
+      behind you fall and crumble to bits, partially shielded from the debris
+      by the parking lot floors.
+    options:
+      - id: $aaaaba
+        text: Get the heck outta dodge
+      - id: $aaaabb
+        text: Go back in to help
+
+  - id: $aaaaba
+    text: >
+      You get in your dodge and drive out of the parking lot. A swarm of 
+      emergency cars surround the rubble. As you're driving away, you 
+      notice that you still have the cell phone in your pocket. 
+    options:
+      - id: $aaaabaa
+        text: Turn back
+      - id: $aaaabab
+        text: Go to the station
+      - id: $aaaabac
+        text: Go home
+
   - id: $aaaac
     text: >
       You yeet that boi at the wall. It cracks open, letting the battery 
@@ -266,8 +295,8 @@ parts:
       a** up!" you shut him down and go even harder on the beat. As
       you walk out the door of the office building, your hype crowd 
       follows you. They follow you all the way to your home, to your
-      studio, as you drop the hottest trach the world has ever been
-      graced to listen to. Jeff Besos himself smashes into your house
+      studio, as you drop the hottest track the world has ever been
+      graced to listen to. Jeff Bezos himself smashes into your house
       in his Blue Origin capsule and gives you a million dollars in
       Amazon Basics merchendise. Now all that awaits is a life of exotic
       cars and big ass houses. What more could someone ask for?
