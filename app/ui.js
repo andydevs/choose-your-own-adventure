@@ -13,14 +13,16 @@ const controlsArea = document.getElementById('cyoa-controls')
 /**
  * Create option button
  * 
- * @param {{ text: string, id: string }} option option spec
+ * @param {object}  option option spec
  */
 function createOptionButton(option) {
     let button = document.createElement('button')
     button.classList.add('option')
     button.innerText = option.text
-    button.addEventListener('click', 
-        () => storyId$.next(option.id))
+    button.addEventListener('click', () => {
+        if (option.id === '$') { textArea.innerHTML = '' }
+        storyId$.next(option)
+    })
     return button
 }
 
@@ -71,28 +73,46 @@ function createEndingArea(ending) {
 export const storyId$ = new Subject()
 
 /**
- * Clear UI
+ * Update story with new part and option picked
+ * 
+ * @param {object} option option selected
+ * @param {object} part   story part to set
  */
-export function clear() {
-    textArea.innerHTML = ''
+export function updateStory(option, part) {
+    let partDom = document.createElement('div')
+    partDom.classList.add('part')
+    if (option.id !== '$') {
+        let partOptionDom = document.createElement('p')
+        partOptionDom.classList.add('part-option')
+        let partOptionTextDom = document.createElement('span')
+        partOptionTextDom.classList.add('part-option-text')
+        partOptionTextDom.innerHTML = option.text
+        partOptionDom.appendChild(partOptionTextDom)
+        partDom.append(partOptionDom)
+    }
+    let partTextDom = document.createElement('p')
+    partTextDom.classList.add('part-text')
+    partTextDom.innerHTML = part.text
+    partDom.appendChild(partTextDom)
+
+    // Set part
+    textArea.appendChild(partDom)
+    partDom.scrollIntoView(false)
+    
+    // Set controls
+    let controlArea
+    if (part.theend) { controlArea = createEndingArea(part.ending) }
+    else { controlArea = createOptionsArea(part.options) }
     controlsArea.innerHTML = ''
+    controlsArea.appendChild(controlArea)
 }
 
 /**
- * Set story part
- * 
- * @param {StoryPart} part story part to set
+ * Initialize UI
  */
-export function setStoryPart(part) {
-    // Set part
-    clear()
-    textArea.innerHTML = part.text
-    let controlArea
-    if (part.theend) {
-        controlArea = createEndingArea(part.ending)
-    }
-    else {
-        controlArea = createOptionsArea(part.options)
-    }
-    controlsArea.appendChild(controlArea)
+export function initialize(part) {
+    // Make sure UI is clear
+    textArea.innerHTML = `<div class='part'><p class='part-text'>${part.text}</p></div>`
+    controlsArea.innerHTML = ''
+    controlsArea.appendChild(createOptionsArea(part.options))
 }

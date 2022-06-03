@@ -5,6 +5,16 @@
  * Created: 10 - 26 - 2020
  */
 
+// Option coloring
+$default-color: #eee;
+$option-colors: (
+    aqua, 
+    lime, 
+    #ffdd00, 
+    lightsalmon,
+    violet,
+);
+
 // Ending
 .ending-text {
     text-align: right;
@@ -31,31 +41,25 @@
     border: 1px solid;
     border-color: transparent;
     transition: border-color 0.25s ease-in-out;
+
+    // Coloring
+    background-color: $default-color;
+    &:hover {
+        border-color: darken($default-color, 10);
+    }
+}
+.part-option-text {
+    @extend .option; 
+    display: inline-block;
+    background-color: $default-color !important;
+    &:hover { border-color: darken($default-color, 10) !important; }
 }
 
 // Option coloring
-$option-colors: (
-    aqua, 
-    lime, 
-    #ffdd00, 
-    lightsalmon,
-    violet,
-);
 @for $i from 1 through length($option-colors) {
     $color: nth($option-colors, $i);
     .option:nth-of-type(#{$i}) {
         background-color: $color;
+        &:hover { border-color: darken($color, 10%); }
     }
-    .option:nth-of-type(#{$i}):hover {
-        border-color: darken($color, 10%);
-    }
-}
-
-// Default option coloring
-$default-color: #eee;
-.option {
-    background-color: $default-color;
-}
-.option:hover {
-    border-color: darken($default-color, 10);
 }

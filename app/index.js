@@ -11,18 +11,19 @@ import * as UI from './ui'
 /**
  * Set story part to given id
  * 
- * @param {string} id ID of story part to set
+ * @param {object} option option selected
  */
-function selectStoryPart(id) {
+function selectStoryPart(option) {
     console.group('selectStoryPart')
+    console.log('You picked: ' + option.text)
     
     // Find story part
-    console.log('Getting part with id: ' + id)
-    let part = story.findPart(id)
+    console.log('Getting part with id: ' + option.id)
+    let part = story.findPart(option.id)
     console.log(part)
 
     // Set part
-    UI.setStoryPart(part)
+    UI.updateStory(option, part)
 
     console.groupEnd()
 }
@@ -30,4 +31,4 @@ function selectStoryPart(id) {
 // Let's start the freaking story!
 document.title = story.title
 UI.storyId$.subscribe(selectStoryPart)
-selectStoryPart('$')
+UI.initialize(story.findPart('$'))
