@@ -95,7 +95,7 @@ parts:
     text: >
       "It was he!" You point the finger to the person 
       next to you. "What no!" he retorts "It was you 
-      man! What are you talking about?" But then a 
+      man! What are you talking about?" But then the 
       little boy from the other side of the elevator
       shouts "Whoever smelt it dealt it!" The boy 
       points his finger at you "You smelt it first!" 
@@ -121,13 +121,14 @@ parts:
 
   - id: $bd
     text: >
-      "I'm really sorry. It was me" you say, calmly. The
-      woman looks at you for a second, and then says "whatever".
-      The elevator door opens at your stop. But it turns out that
-      it was her stop as well. You both walk out onto the floor to
-      catch your breath. Enough time to take one look at her, and
-      make a big decision that could change the course of your
-      entire life
+      "I'm really sorry. It was me" you say, calmly. 
+      The woman looks at you for a second, and then 
+      says "whatever". The elevator door opens at your 
+      stop. But it turns out that it was her stop as 
+      well. You both walk out onto the floor to catch 
+      your breath. Enough time to take one look at her, 
+      and make a big decision that could change the 
+      course of your entire life
     options:
       - id: $bda
         text: Talk to her
@@ -136,11 +137,12 @@ parts:
 
   - id: $cb
     text: >
-      You point the finger back at him "Well what about you?". "Of
-      course it isn't me!" he retorts, You fold your arms, grinning.
-      "Whoever denied it supplied it!" you say, confidently. "I got
-      you now!" The boy loses color. You notice he has one of his 
-      hands behind his back.
+      You point the finger back at him "Well what about 
+      you?". "Of course it isn't me!" he retorts, You 
+      fold your arms, grinning. "Whoever denied it supplied 
+      it!" you say, confidently. "I got you now!" The boy 
+      loses color. You notice he has one of his hands behind 
+      his back.
     options:
       - id: $cba
         text: Rest your case
@@ -153,7 +155,7 @@ parts:
       The man is confused... but then relieved "Ooooohhhh!" He says
       "I thought you were talking about the bank robbery". Everyone
       raises their eyebrows and turns to him. His face loses color,
-      as he realizes what he just said. "Uuuuuhhh". The elevator door 
+      as he realizes what he just said. Just then, the elevator door 
       opens, and he books it outside. 
     options: 
       - id: $aaaa
@@ -165,9 +167,10 @@ parts:
     text: >
       Well, whatever was going on there, probably didn't matter to you.
       You weren't a cop, and it didn't look like he was taking anything
-      from you. Suddenly, you feel a vibration in your left pocket. You
-      reach in and pull out an old mobile phone that isn't yours. Someone 
-      by the name of "Klaus" seems to be calling you on this phone.
+      from you. The elevator empties on your way down to the parking lot. 
+      Suddenly, you feel a vibration in your left pocket. You reach in and 
+      pull out an old mobile phone that isn't yours. Someone by the name of 
+      "Klaus" seems to be calling you on this phone.
     options:
       - id: $aaaaa
         text: Answer the phone
@@ -176,16 +179,97 @@ parts:
       - id: $aaaac
         text: Throw it at the waaaaalllll
 
+  - id: $aaaaa
+    text: >
+      "Is this Klaus?" you say, as you answer the phone. "Um... no.". Even
+      with the british accent, you can tell the man on the other line is 
+      flustered. "I think you have the wrong number...". 
+    options:
+      - id: $aaaaaa
+        text: '"That makes no sense"'
+      - id: $aaaaab
+        text: '"Oh okay then"'
+
+  - id: $aaaaaa
+    text: >
+      "But you're calling me... and your caller ID says Klaus, and-" Klaus
+      cuts you off "I'm going to hang up now". The phone disconnects. "Hmm",
+      you think, "curious". Suddenly the phone rings again, and it's Klaus.
+    options:
+      - id: $aaaaaaa
+        text: Answer it
+      - id: $aaaab
+        text: Ignore it
+
+  - id: $aaaaab
+    text: >
+      "Have a good day" you say as you hang up the phone. He probably meant
+      he had the wrong number. "It happens to the best of us", you think. 
+      Suddenly the phone rings again, and it's Klaus.
+    options:
+      - id: $aaaaaaa
+        text: Answer it
+      - id: $aaaab
+        text: Ignore it
+  
+  - id: $aaaaaaa
+    text: >
+      "Is this Klaus?" you say as you answer again. "Wait what the-", Klaus
+      reacts. "Um... have you seen my grandson? He seems to be missing".
+    options:
+      - id: $aaaaaaaa
+        text: '"I think he robbed a bank"'
+      - id: $aaaaaaab
+        text: '"Nope"'
+
+  - id: $aaaaaaab
+    text: >
+      "Oh well, um... if you find him, let him know his granddad called" Klaus 
+      hangs up. "Oh, poor Klaus", you wonder to yourself "will he ever find his 
+      grandson?" And, once again, the phone rings, and it's Klaus.
+    options:
+      - id: $aaaaaaaaa
+        text: Answer it
+      - id: $aaaab
+        text: Ignore it
+
+  - id: $aaaaaaaa
+    text: >
+      "Um... he did what? That man!" Klaus retorts "I'm going to give that ol'
+      wanker a piece of my mind! Lemme try a different phone!" He hangs up. "Oh,
+      poor Klaus", you wonder to yourself "how can he live with his grandson's
+      crimes?" And, once again, the phone rings, and it's Klaus.
+    options:
+      - id: $aaaaaaaaa
+        text: Answer it
+      - id: $aaaab
+        text: Ignore it
+
+  - id: $aaaaaaaaa
+    text: >
+      "Is this Klau-" before you can even answer, Klaus jumps in "Oh for fuck's 
+      sake! Look you bellend! Don't answer the phone!" You respond "Why are you
+      calling me, then?" Klaus responds "Oh to hell with it. Listen, just keep
+      the phone in the elevator, let it ring and go unanswered so we can trigger
+      the explosives!" You are taken aback "Explosives?" Klaus shamelessly admits 
+      to his crimes. Before he hangs up you run outside the elevator to a nearby 
+      police officer. Fortunately, Klaus hadn't hidden his phone number or his 
+      caller ID in any way, so the police were able to capture him and eventually
+      the robber. The Building was saved by your heroism (or stupidity but it still
+      helped so that's good)!
+    theend: true
+    ending: Unwitting Hero
+
   - id: $aaaab
     text: >
       You put it back in your pocket. Best not to let them know you didn't 
-      answer right away, otherwise something suspicious might happen. As 
-      you near the parking lot exit, the vibrations in your pocket stop.
-      Suddenly, you hear a loud bang coming from behind you. Instinctively,
-      you book it to the exit, never looking back because cool guys don't
-      look at explosions. You make it out just in time to see the building
-      behind you fall and crumble to bits, partially shielded from the debris
-      by the parking lot floors.
+      answer right away, otherwise they might get suspicious. As you near 
+      the parking lot exit, the vibrations in your pocket stop. Suddenly, 
+      you hear a loud bang coming from behind you. Instinctively, you book 
+      it to the exit, never looking back because cool guys don't look at 
+      explosions. You make it out just in time to see the Building behind 
+      you fall and crumble to bits, partially shielded from the debris by 
+      the parking lot floors.
     options:
       - id: $aaaaba
         text: Get the heck outta dodge
@@ -205,10 +289,35 @@ parts:
       - id: $aaaabac
         text: Go home
 
+  - id: $aaaabaa
+    text: >
+      "Right", you think to yourself, "this mysterious cell phone must be
+      the key to solving the crime!". As you finish your dramatic monologue,
+      you turn the car around and drive back to the scene of the crime. The
+      area is surrounded. Survivors are being helped and accounted for. You
+      arrive as SWAT team members are exiting their vehicles. One cop 
+      approaches your car. "Stop!", he yells, "this area is off limits!"
+    options:
+      - id: $aaaabaaa
+        text: '"Wait, officer! I have evidence!"'
+      - id: $aaaabac
+        text: Go home
+
+  - id: $aaaabaaa
+    text: >
+      "What kind of person farts in an elevator and accuses someone else?" The
+      officer is disgusted by the story you've told. "But anyways,", he continues,
+      "where's this cell phone"? You hand him the device. "Well... it looks like
+      something that someone at the station could analyze. We don't have a computer
+      forensics expert here"
+    options:
+      - id: $aaaabab
+        text: Go to the station
+
   - id: $aaaac
     text: >
       You yeet that boi at the wall. It cracks open, letting the battery 
-      fall out and disconnecting the phone. Then the building explodes
+      fall out and disconnecting the phone. Then the Building explodes
     theend: true
     ending: Wait, what?
 
@@ -231,8 +340,7 @@ parts:
       to my boss who probably hates me... and to get reprimanded
       for being late". Just then, you hear a voice calling your 
       name from behind you. You turn around. It's your boss! And
-      he looks none too pleased. "In my office" he yells. What 
-      do you do?
+      he looks none too pleased. "In my office" he yells.
     options:
       - id: $bdba
         text: Go to the office
@@ -241,7 +349,7 @@ parts:
 
   - id: $bdba
     text: >
-      You enter the office building and sit in front of his desk.
+      You enter the office Building and sit in front of his desk.
       He sits behind, leaning back, arms folded. "You know why I
       brought you in here?"
     options:
@@ -261,8 +369,8 @@ parts:
       adds " and we would like for you to take on the role of manager!" 
       You're shocked, numb, but as your former boss ushers you into your 
       new desk, you feel it set in. Now all that awaits is a life of 
-      moderately more expensive cars and a few more trips to Legal Seafoods 
-      every month. What more could someone ask for?
+      moderately more expensive cars and a few more trips to Legal 
+      Seafoods every month. What more could someone ask for?
     theend: true
     ending: Dat Middle Manager Life
 
@@ -278,9 +386,9 @@ parts:
 
   - id: $bdbac
     text: >
-      "Well you know what?" the boss asks rhetorically, "I... I don't
-      remember either. It was probably nothing." You nod nervously.
-      "Well, back to work! Time is money"
+      "Well you know what?" the boss asks rhetorically, "I don't remember 
+      either. It was probably nothing." You nod nervously. "Well, back to 
+      work! Time is money"
     options:
       - id: $bdbaca
         text: Get back to work
@@ -293,12 +401,12 @@ parts:
       drop a sick diss track on your boss. "You'll never make it as
       a rap artist! Give it up!" your boss retorts. "Shut yo b**** 
       a** up!" you shut him down and go even harder on the beat. As
-      you walk out the door of the office building, your hype crowd 
+      you walk out the front door of the Building, your hype crowd 
       follows you. They follow you all the way to your home, to your
       studio, as you drop the hottest track the world has ever been
       graced to listen to. Jeff Bezos himself smashes into your house
       in his Blue Origin capsule and gives you a million dollars in
-      Amazon Basics merchendise. Now all that awaits is a life of exotic
-      cars and big ass houses. What more could someone ask for?
+      Amazon Basics merchendise. Now all that awaits is a life of 
+      exotic cars and big houses. What more could someone ask for?
     theend: true
     ending: Dat "Lil' Poop Stain" Life
