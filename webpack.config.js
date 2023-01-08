@@ -10,10 +10,13 @@ const path = require('path')
 module.exports = {
     mode: process.env.NODE_ENV || 'production',
     devtool: 'source-map',
-    entry: './app/index.js',
+    entry: {
+        main: './app/index.js',
+        paths: './app/paths.js'
+    },
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),

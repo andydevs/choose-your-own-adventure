@@ -1,0 +1,46 @@
+/**
+ * Exactly what it says on the tin
+ * 
+ * Author:  Anshul Kharbanda
+ * Created: 10 - 26 - 2020
+ */
+ 
+// Der fonten
+* { 
+    font-family: Consolas, monospace; 
+    font-size: 12pt;
+}
+    
+// Part list
+.part-list {
+    list-style-type: none;
+    margin-left: 0pt;
+    padding-left: 16pt;
+    li::before { content: '\2013    '; }
+}
+
+// Option types
+.ending {
+    color: black;
+    font-weight: bold; 
+}
+.unwritten { 
+    color: grey; 
+    font-style: italic; 
+}
+
+// Color stuff
+$default-color: #eee;
+$option-colors: (
+    blue, 
+    lime, 
+    gold, 
+    red,
+    purple,
+);
+@for $i from 1 through length($option-colors) {
+    $color: nth($option-colors, $i);
+    .option:nth-of-type(#{$i}) {
+        color: darken($color, 10%);
+    }
+}
