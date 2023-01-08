@@ -3,6 +3,9 @@ Choose Your own Adventure
 
 Exactly what it says on the tin...
 
+This is a work in progress and I add a bit to this project 
+every once in a while.
+
 Development
 -----------------------------------------------------------
 
