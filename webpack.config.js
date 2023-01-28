@@ -6,6 +6,9 @@
  */
 const path = require('path')
 
+// Constants
+const contentDir = path.resolve(__dirname, 'public')
+
 // Webpack config
 module.exports = {
     mode: process.env.NODE_ENV || 'production',
@@ -15,11 +18,13 @@ module.exports = {
         paths: './app/paths.js'
     },
     output: {
-        path: path.resolve(__dirname, 'public'),
+        path: contentDir,
         filename: '[name].bundle.js'
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'public'),
+        static: {
+            directory: contentDir
+        },
         historyApiFallback: true,
         compress: true
     },
