@@ -24,19 +24,26 @@ pathsDiagram.nodeTemplate =
                 stroke: "black", 
                 font: "12px Verdana" 
             })
-            .bind('text', 'text'));
+            .bind('text')
+            .bind('font'));
 
 pathsDiagram.linkTemplate = 
     new go.Link({
         routing: go.Link.Orthogonal,
         corner: 5
     })
-    .add(new go.Shape({ strokeWidth: 1, stroke: '#777' }))
+        .add(new go.Shape({ 
+            strokeWidth: 1, 
+            stroke: '#777'
+        }))
+        .add(new go.Shape({
+            toArrow: 'Triangle',
+            fill: '#777',
+            stroke: null
+        }))
 
-pathsDiagram.layout = new go.TreeLayout({
-    angle: 0,
-    nodeSpacing: 10,
-    layerSpacing: 30
+pathsDiagram.layout = new go.LayeredDigraphLayout({
+    direction: 90
 })
 
 let colors = [
@@ -46,29 +53,39 @@ let colors = [
     'lightsalmon',
     'violet'
 ]
-let nodes = []
-for (const part of story.parts) {
-    if (part.theend) {
-        nodes.push({
-            key: `${part.id}-end`,
-            parent: part.id,
-            text: part.ending,
-            color: 'transparent'
-        })
-    } else {
-        for (const index in part.options) {
-            let option = part.options[index]
-            nodes.push({
-                key: option.id,
-                parent: part.id,
-                text: option.text,
-                color: colors[index]
-            })
-        }
-    }
-}
+let unique = (key='key') => (arr, val) => arr.some(elem => elem[key] === val[key]) ? arr : [...arr, val]
+let choices = story.parts
+    .flatMap(part => 
+        part.theend 
+            ? [({ 
+                key: `${part.id}-end`,
+                text: part.ending,
+                color: 'transparent',
+                font: 'bold 12px Verdana'
+            })]
+            : part.options.map((opt, index) => ({ 
+                key: opt.id, 
+                text: opt.text,
+                color: colors[index] 
+            }))
+    )
+    .reduce(unique(), [])
+choices.unshift({ 
+    key: '$',
+    text: 'Start',
+    color: '#aaa'
+})
+let links = story.parts
+    .flatMap(part => 
+        part.theend
+            ? [({
+                from: part.id,
+                to: `${part.id}-end`
+            })]
+            : part.options.map(opt => ({ 
+                from: part.id, 
+                to: opt.id 
+            }))
+    )
 
-pathsDiagram.model = new go.TreeModel([
-    { key: "$", parent: '', text: "Start", color: "#aaa"},
-    ...nodes
-])
+pathsDiagram.model = new go.GraphLinksModel(choices, links)
