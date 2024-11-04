@@ -118,3 +118,6 @@ dist
 # Cypress (for now)
 videos/
 screenshots/
+
+# No devcontainer >:-(
+.devcontainer/
