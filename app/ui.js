@@ -59,10 +59,9 @@ function createEndingArea(ending) {
     endingArea.appendChild(endingText)
 
     // Create play again option
-    let button = createOptionButton({
-        id: '$',
-        text: 'Play Again'
-    })
+    let button = createOptionsArea([
+        { id: '$', text: 'Play Again' }
+    ])
     endingArea.appendChild(button)
 
     // Return ending area
@@ -85,7 +84,7 @@ export function updateStory(option, part) {
         let partOptionDom = document.createElement('p')
         partOptionDom.classList.add('part-option')
         let partOptionTextDom = document.createElement('span')
-        partOptionTextDom.classList.add('part-option-text')
+        partOptionTextDom.classList.add('option')
         partOptionTextDom.innerHTML = option.text
         partOptionDom.appendChild(partOptionTextDom)
         partDom.append(partOptionDom)

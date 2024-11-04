@@ -24,17 +24,23 @@ $option-colors: (
     }
 }
 
+// Options group
+.options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8pt;
+}
+
 // Option buttons
 .option {
     // Positioning
-    display: block;
-    margin: 8pt 0pt;
-    margin-left: auto;
+    display: inline-block;
+    flex-grow: 1;
 
     // Size and shape
-    padding: 4pt 8pt;
-    border-top-left-radius: 8pt;
-    border-bottom-left-radius: 8pt;
+    padding: 8pt 16pt;
+    border-radius: 8pt;
 
     // Border
     border: 1px solid;
@@ -46,18 +52,15 @@ $option-colors: (
     &:hover {
         border-color: darken($default-color, 10);
     }
-}
-.part-option-text {
-    @extend .option; 
-    display: inline-block;
-    background-color: $default-color !important;
-    &:hover { border-color: darken($default-color, 10) !important; }
+
+    // Font
+    font-size: large;
 }
 
 // Option coloring
 @for $i from 1 through length($option-colors) {
     $color: nth($option-colors, $i);
-    .option:nth-of-type(#{$i}) {
+    .options > .option:nth-of-type(#{$i}) {
         background-color: $color;
         &:hover { border-color: darken($color, 10%); }
     }
