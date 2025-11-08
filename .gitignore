@@ -121,3 +121,5 @@ screenshots/
 
 # No devcontainer >:-(
 .devcontainer/
+*.md
+!README.md
